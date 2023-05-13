@@ -1,0 +1,16 @@
+[
+    {
+        "user_id" : "vibhavA",
+        "name": "vibhav",
+        "password": "sdfsf479076qji$^%$",
+        "role": "admin",
+        "access" : [""]
+    },
+    {
+        "user_id" : "vibhavU",
+        "name": "vibhav",
+        "password": "sdfsf4790adrwe76qji$^%$",
+        "role": "user",
+        "access" : [""]
+    }
+]
