@@ -10,12 +10,10 @@ const port = 3000;
 
 app.use(responseTime((req, res, time) => {
   console.log(req.method, req.url, time + 'ms');
-//   logger.info(`{ip:${req.ip},req_method:${req.method},req_url:${req.url}, time_taken :${time + 'ms'}}`)
 }));
 
-  
-  // routes
-  app.use('/api/user/',require('./src/routes/userRoute'))
+// routes
+app.use('/api/user/',require('./src/routes/userRoute'))
 
 
 app.get('/health',(req, res)=>{
