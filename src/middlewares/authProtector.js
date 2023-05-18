@@ -1,6 +1,6 @@
 // const jwt = require("jsonwebtoken");
 const catchAsync = require('../utills/catchAsync');
-const checkAuth = require('../modules/user.auth')
+const checkAuth = require('../../database/user.auth')
 
 
 module.exports = catchAsync(async (req, res, next) => {

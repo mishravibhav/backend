@@ -1,4 +1,4 @@
-const users = require('../temp/users.json')
+const users = require('../src/temp/users.json')
 
 const checkAuth = (token)=>{
     return new Promise((resolve,reject)=>{

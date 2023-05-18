@@ -1,11 +1,42 @@
-const checkAuth = require('../modules/user.auth')
+const typeorm = require("typeorm")
+const { DataSource } = require("typeorm")
+const User = require("../model/user").User
 
-const tester = async ()=>{
-    const res = await checkAuth("sdfsf479076qji$^%$").then((r)=>{
-        console.log(r)
-    }).catch((e)=>{
-        console.log(e)
+const dataSource = new DataSource({
+        type: "mysql",
+        host: "localhost",
+        port: 3306,
+        username: "root",
+        password: "password",
+        database: "vibhav_db",
+        synchronize: true,
+        logging: false,
+        entities: [
+            require("../entity/User")
+        ]
+})
+
+// load entities, establish db connection, sync schema, etc.
+const main = async ()=>{
+    await dataSource.initialize().then(async(e)=>{
+        console.log("db connection established")
+
+    //     await dataSource.createQueryBuilder().insert() 
+    //   .into(User)  
+    //   .values([ {user_id:"vibhavA", first_name: "Vibahv",last_name:"Mishra",password:"12345",role:"admin"}, 
+    //      { user_id:"vibhavU", first_name: "Vibahv",last_name:"Mishra",password:"123456789",role:"user"} ]) .execute(); 
+
+    const userRepository = dataSource.getRepository(User)
+    const allUser = await userRepository.find()
+    console.log("All photos from the db: ", allUser)
+    
+    const findByid = await userRepository.findOneBy({
+        user_id: "vibhavA",
+    })
+    console.log("findByid",findByid)
+    }).catch((err)=>{
+        console.log("error",err)
     })
 }
 
-tester()
+main()

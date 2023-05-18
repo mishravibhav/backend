@@ -1,9 +1,21 @@
 {
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "express-generator": "^4.16.1",
-    "response-time": "^2.3.2",
-    "typeorm": "^0.3.16"
-  }
+   "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^4.18.2",
+      "express-generator": "^4.2.0",
+      "mysql": "^2.14.1",
+      "reflect-metadata": "^0.1.13",
+      "response-time": "^2.3.2",
+      "typeorm": "0.3.16",
+      "pg": "^8.4.0"
+   },
+   "devDependencies": {
+      "ts-node": "10.7.0",
+      "@types/node": "^16.11.10",
+      "typescript": "4.5.2"
+   },
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "typeorm": "typeorm-ts-node-commonjs"
+   }
 }
